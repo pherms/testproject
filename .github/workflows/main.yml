@@ -13,7 +13,7 @@ jobs:
           sonarProjectKey: testproject
           # The name of the SonarQube project
           sonarProjectName:  "testproject"
-          dotnetBuildArguments: ./src/PonApp.sln
+          dotnetBuildArguments: Ryujinx.sln
           # The SonarQube server URL. For SonarCloud, skip this setting.
           sonarHostname:  https://sqplayground.xablu.com
         env:
