@@ -1,4 +1,4 @@
-on: workflow_dispatch
+on: pull_request
 name: Sonarscanner and PR decoration
 jobs:
   sonarscanner-pr-decoration:
