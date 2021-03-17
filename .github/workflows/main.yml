@@ -1,6 +1,7 @@
-on: pull_request
-  branches:
-    - "develop"
+on: 
+  pull_request:
+    branches:
+      - 'develop'
 name: Sonarscanner and PR decoration
 jobs:
   sonarscanner-pr-decoration:
