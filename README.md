@@ -107,9 +107,3 @@ This software is licensed under the terms of the MIT license.
 The Ryujinx.Audio project is licensed under the terms of the LGPLv3 license.
 This project makes use of code authored by the libvpx project, licensed under BSD and the ffmpeg project, licensed under LGPLv3.
 See [LICENSE.txt](LICENSE.txt) and [THIRDPARTY.md](Ryujinx/THIRDPARTY.md) for more details.
- 
-bla bla
-
-bla bla bla
-
-voor de pull request naar develop.
