@@ -111,3 +111,5 @@ See [LICENSE.txt](LICENSE.txt) and [THIRDPARTY.md](Ryujinx/THIRDPARTY.md) for mo
 nog een keer met de plugin, maar nu ook met pull request enabled in de sqplayground
 
 another setting
+
+and another 1
