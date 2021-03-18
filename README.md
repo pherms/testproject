@@ -112,4 +112,4 @@ bla bla
 
 bla bla bla
 
-voor de pull request naar develop.
+voor de pull request naar develop, maar met plugin voor sonarqube.
