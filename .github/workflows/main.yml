@@ -9,10 +9,13 @@ jobs:
     name: Sonarscanner and PR decoration
     steps:
       - uses: actions/checkout@v2
+        name: Checkout
         with:
           fetch-depth: '0'
       - run: git fetch origin develop
-      - uses: highbyte/sonarscan-dotnet@2.0
+        name: Fetching develop branch
+      #- uses: highbyte/sonarscan-dotnet@2.0
+      - uses: pherms/sonarscan-dotnet@main
         name: SonarScanner for .NET 5 with pull request decoration support
         with:
           # The key of the SonarQube project
