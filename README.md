@@ -109,3 +109,5 @@ This project makes use of code authored by the libvpx project, licensed under BS
 See [LICENSE.txt](LICENSE.txt) and [THIRDPARTY.md](Ryujinx/THIRDPARTY.md) for more details.
 
 nog een keer met de plugin, maar nu ook met pull request enabled in de sqplayground
+
+another setting
