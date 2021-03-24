@@ -1,16 +1,4 @@
-https://github.com/mc1arke/sonarqube-community-branch-plugin/releases/download/1.5.0/sonarqube-community-branch-plugin-1.5.0.jar
-
-sonar_begin_cmd="$sonar_begin_cmd /d:sonar.pullrequest.key=$PR_NUMBER /d:sonar.pullrequest.branch=$GITHUB_HEAD_REF /d:sonar.pullrequest.base=$GITHUB_BASE_REF /d:sonar.pullrequest.github.repository=$GITHUB_REPOSITORY /d:sonar.pullrequest.provider=github"
-
-testproject
-
-proberen
-
--Dsonar.scm.revision=${{ github.event.pull_request.head.sha }}
-
-sonar.analysis.mode=preview
-
-.on:
+on:
   workflow_dispatch:
     branches:
       - develop
