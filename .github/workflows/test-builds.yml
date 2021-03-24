@@ -24,7 +24,7 @@ jobs:
     - uses: actions/checkout@v2
       name: Checkout ${{ matrix.branch }}
     - name: ${{ matrix.appname}} ${{ matrix.branch}} branch Appcenter trigger
-      if: contains(github.ref, '${{ matrix.branch' }})
+      if: contains(github.ref, '${{ matrix.branch }}')
       uses: xablu/github-appcenterbuild-action@main
       with:
         appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
