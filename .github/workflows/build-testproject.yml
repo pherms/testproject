@@ -9,10 +9,10 @@ on:
       - 'release-beta'
       - 'release-store'
 name: Build AfsprakenApp in Appcenter
-strategy:
+jobs:
+  strategy:
   matrix:
     appname: [testproject,testproject-1]
-jobs:
   AppcenterBuildTrigger:
     name: Appcenter Build Trigger
     runs-on: ubuntu-latest
