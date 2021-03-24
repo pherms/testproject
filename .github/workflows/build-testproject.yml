@@ -11,8 +11,8 @@ on:
 name: Build AfsprakenApp in Appcenter
 jobs:
   strategy:
-  matrix:
-    appname: [testproject,testproject-1]
+    matrix:
+      appname: [testproject,testproject-1]
   AppcenterBuildTrigger:
     name: Appcenter Build Trigger
     runs-on: ubuntu-latest
