@@ -22,13 +22,13 @@ jobs:
         branch: [develop, release-alpha, release-beta, release-store]
     steps:
     - uses: actions/checkout@v2
-      name: Checkout branch
+      name: Checkout ${{ matrix.branch }}
     - name: ${{ matrix.appname}} ${{ matrix.branch}} branch Appcenter trigger
-      if: contains(github.ref, '${{ matrix.branch }}')
+      if: contains(github.ref, '${{ matrix.branch' }})
       uses: xablu/github-appcenterbuild-action@main
       with:
         appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
-        organization: healthtrain
+        organization: p.herms-xablu.com
         application: ${{ matrix.appname }}
         branch: ${{ matrix.branch }}
  
