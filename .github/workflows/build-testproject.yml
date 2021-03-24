@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@v2
       name: Checkout branch
     - name: AfsprakenApp develop branch Appcenter trigger
-      if: github.ref == 'ref/heads/develop'
+      if: github.ref == 'refs/remotes/origin/develop'
       uses: xablu/github-appcenterbuild-action@main
       with:
         appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
@@ -30,7 +30,7 @@ jobs:
         application: ${{ matrix.appname }}
         branch: develop
     - name: AfsprakenApp release-alpha branch Appcenter trigger
-      if: github.ref == 'ref/heads/release-alpha'
+      if: github.ref == 'refs/remotes/origin/release-alpha'
       uses: xablu/github-appcenterbuild-action@main
       with:
         appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
@@ -38,7 +38,7 @@ jobs:
         application: ${{ matrix.appname }}
         branch: release-alpha
     - name: AfsprakenApp release-beta branch Appcenter trigger
-      if: github.ref == 'ref/heads/release-beta'
+      if: github.ref == 'refs/remotes/origin/release-beta'
       uses: xablu/github-appcenterbuild-action@main
       with:
         appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
@@ -46,7 +46,7 @@ jobs:
         application: ${{ matrix.appname }}
         branch: release-beta
     - name: AfsprakenApp release-store branch Appcenter trigger
-      if: github.ref == 'ref/heads/release-store'
+      if: github.ref == 'refs/remotes/origin/release-store'
       uses: xablu/github-appcenterbuild-action@main
       with:
         appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
