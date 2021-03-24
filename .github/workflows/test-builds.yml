@@ -1,0 +1,46 @@
+https://github.com/mc1arke/sonarqube-community-branch-plugin/releases/download/1.5.0/sonarqube-community-branch-plugin-1.5.0.jar
+
+sonar_begin_cmd="$sonar_begin_cmd /d:sonar.pullrequest.key=$PR_NUMBER /d:sonar.pullrequest.branch=$GITHUB_HEAD_REF /d:sonar.pullrequest.base=$GITHUB_BASE_REF /d:sonar.pullrequest.github.repository=$GITHUB_REPOSITORY /d:sonar.pullrequest.provider=github"
+
+testproject
+
+proberen
+
+-Dsonar.scm.revision=${{ github.event.pull_request.head.sha }}
+
+sonar.analysis.mode=preview
+
+.on:
+  workflow_dispatch:
+    branches:
+      - develop
+      - release-alpha
+      - release-beta
+      - release-store
+  push:
+    branches:
+      - develop
+      - release-alpha
+      - release-beta
+      - release-store
+name: Build ${{ matrix.appname }} App in Appcenter
+jobs:
+  AppcenterBuildTrigger:
+    name: ${{ matrix.appname }} Build Trigger Appcenter
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        appname: [testproject, testproject-1]
+        branch: [develop, release-alpha, release-beta, release-store]
+    steps:
+    - uses: actions/checkout@v2
+      name: Checkout branch
+    - name: ${{ matrix.appname}} ${{ matrix.branch}} branch Appcenter trigger
+      if: contains(github.ref, '${{ matrix.branch }}')
+      uses: xablu/github-appcenterbuild-action@main
+      with:
+        appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
+        organization: healthtrain
+        application: ${{ matrix.appname }}
+        branch: ${{ matrix.branch }}
+ 
