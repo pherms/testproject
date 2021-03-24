@@ -1,0 +1,55 @@
+on:
+  workflow_dispatch:
+    branches: develop
+#   push:
+#     branches:
+#       - develop
+#   pull_request:
+#     branches:
+#       - develop
+#       - release-alpha
+#       - release-beta
+#       - release-store!
+name: Build AfsprakenApp in Appcenter
+jobs:
+  AppcenterBuildTrigger:
+    name: Appcenter Build Trigger
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        appname: [testproject,testproject-1]
+    steps:
+    - uses: actions/checkout@v2
+      name: Checkout branch
+    - name: AfsprakenApp develop branch Appcenter trigger
+      if: github.ref == 'ref/heads/develop'
+      uses: xablu/github-appcenterbuild-action@main
+      with:
+        appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
+        organization: p.herms-xablu.com
+        application: ${{ matrix.appname }}
+        branch: develop
+    - name: AfsprakenApp release-alpha branch Appcenter trigger
+      if: github.ref == 'ref/heads/release-alpha'
+      uses: xablu/github-appcenterbuild-action@main
+      with:
+        appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
+        organization: p.herms-xablu.com
+        application: ${{ matrix.appname }}
+        branch: release-alpha
+    - name: AfsprakenApp release-beta branch Appcenter trigger
+      if: github.ref == 'ref/heads/release-beta'
+      uses: xablu/github-appcenterbuild-action@main
+      with:
+        appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
+        organization: p.herms-xablu.com
+        application: ${{ matrix.appname }}
+        branch: release-beta
+    - name: AfsprakenApp release-store branch Appcenter trigger
+      if: github.ref == 'ref/heads/release-store'
+      uses: xablu/github-appcenterbuild-action@main
+      with:
+        appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
+        organization: p.herms-xablu.com
+        application: ${{ matrix.appname }}
+        branch: release-store
