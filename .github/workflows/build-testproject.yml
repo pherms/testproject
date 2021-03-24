@@ -1,14 +1,14 @@
 on:
-  workflow_dispatch
-#   push:
-#     branches:
-#       - develop
-#   pull_request:
-#     branches:
-#       - develop
-#       - release-alpha
-#       - release-beta
-#       - release-store
+#   workflow_dispatch
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+      - release-alpha
+      - release-beta
+      - release-store
 name: Build AfsprakenApp in Appcenter
 jobs:
   AppcenterBuildTrigger:
