@@ -11,7 +11,7 @@ on:
       - release-alpha
       - release-beta
       - release-store
-name: Build ${{ matrix.appname }} App in Appcenter
+name: Built Testproject App in Appcenter
 jobs:
   AppcenterBuildTrigger:
     name: ${{ matrix.appname }} Build Trigger Appcenter
