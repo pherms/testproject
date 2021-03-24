@@ -9,7 +9,7 @@ on:
 #       - develop
 #       - release-alpha
 #       - release-beta
-#       - release-store
+#       - release-store!
 name: Build AfsprakenApp in Appcenter
 jobs:
   AppcenterBuildTrigger:
