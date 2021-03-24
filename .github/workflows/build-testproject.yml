@@ -10,12 +10,12 @@ on:
       - 'release-store'
 name: Build AfsprakenApp in Appcenter
 jobs:
-  strategy:
-    matrix:
-      appname: [testproject,testproject-1]
   AppcenterBuildTrigger:
     name: Appcenter Build Trigger
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        appname: [testproject,testproject-1]
     steps:
     - uses: actions/checkout@v2
       name: Checkout branch
@@ -25,7 +25,7 @@ jobs:
       with:
         appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
         organization: p.herms-xablu.com
-        application: {{ matrix.appname }}
+        application: ${{ matrix.appname }}
         branch: develop
     - name: AfsprakenApp release-alpha branch Appcenter trigger
       if: github.ref == 'ref/heads/release-alpha'
@@ -33,7 +33,7 @@ jobs:
       with:
         appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
         organization: p.herms-xablu.com
-        application: {{ matrix.appname }}
+        application: ${{ matrix.appname }}
         branch: release-alpha
     - name: AfsprakenApp release-beta branch Appcenter trigger
       if: github.ref == 'ref/heads/release-beta'
@@ -41,7 +41,7 @@ jobs:
       with:
         appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
         organization: p.herms-xablu.com
-        application: {{ matrix.appname }}
+        application: ${{ matrix.appname }}
         branch: release-beta
     - name: AfsprakenApp release-store branch Appcenter trigger
       if: github.ref == 'ref/heads/release-store'
@@ -49,5 +49,5 @@ jobs:
       with:
         appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
         organization: p.herms-xablu.com
-        application: {{ matrix.appname }}
+        application: ${{ matrix.appname }}
         branch: release-store
