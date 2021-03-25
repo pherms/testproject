@@ -68,6 +68,16 @@ namespace Ryujinx.Common
             }
         }
 
+        public static long ElapsedDays
+        {
+            get
+            {
+                long timestamp = Stopwatch.GetTimestamp();
+
+                return timestamp;
+            }
+        }
+
         static PerformanceCounter()
         {
             TicksPerMillisecond = Stopwatch.Frequency / 1000;
