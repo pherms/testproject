@@ -1,3 +1,4 @@
+write-host "Pre-build script"
 # download and install dotnet-sonarscanner globally
 dotnet tool install --global dotnet-sonarscanner --version 5.0.4
 
