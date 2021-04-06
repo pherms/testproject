@@ -1,0 +1,34 @@
+on:
+  workflow_dispatch:
+    branches:
+      - develop
+      - release-alpha
+      - release-beta
+      - release-store
+  push:
+    branches:
+      - develop
+      - release-alpha
+      - release-beta
+      - release-store
+name: Built Testproject App in Appcenter
+jobs:
+  AppcenterBuildTrigger:
+    name: ${{ matrix.appname }} Build Trigger Appcenter
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        appname: [testproject, testproject-1]
+        branch: [develop, release-alpha, release-beta, release-store]
+    steps:
+    - uses: actions/checkout@v2
+      name: Checkout ${{ matrix.branch }}
+    - name: ${{ matrix.appname}} ${{ matrix.branch}} branch Appcenter trigger
+      if: contains(github.ref, '${{ matrix.branch }}')
+      uses: xablu/github-appcenterbuild-action@main
+      with:
+        appcentertoken: ${{ secrets.APPCENTER_COMMIT_ACTION_ALL_APPS }}
+        organization: p.herms-xablu.com
+        application: ${{ matrix.appname }}
+        branch: ${{ matrix.branch }}
+ 
