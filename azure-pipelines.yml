@@ -26,17 +26,21 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'Optimizers'
     projectName: 'Optimizers'
-- task: SonarQubeAnalyze@5
+
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: SonarQubePublish@5
-  inputs:
-    pollingTimeoutSec: '300'
+
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: SonarQubeAnalyze@5
+
+- task: SonarQubePublish@5
+  inputs:
+    pollingTimeoutSec: '300'
