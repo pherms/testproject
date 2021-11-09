@@ -86,6 +86,11 @@ namespace Ryujinx.Common
         {
             return _queue.TryAdd(workItem, timeout);
         }
+        
+        public bool Test()
+        {
+            return true;
+        }
 
         public void Dispose()
         {
