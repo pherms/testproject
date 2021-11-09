@@ -20,8 +20,12 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-
-
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'sqplayground'
+    scannerMode: 'MSBuild'
+    projectKey: 'agroit'
+    projectName: 'agroit'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -33,3 +37,7 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: SonarQubeAnalyze@5
+- task: SonarQubePublish@5
+  inputs:
+    pollingTimeoutSec: '300'
