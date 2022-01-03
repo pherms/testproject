@@ -24,7 +24,8 @@ jobs:
           # The name of the SonarQube project
           sonarProjectName:  "testproject"
           dotnetBuildArguments: Ryujinx.sln
-          dotnetDisableTests: '1'
+          dotnetDisableTests: '0'
+          dotnetTestArguments: "--logger trx"
           # The SonarQube server URL. For SonarCloud, skip this setting.
           sonarHostname:  https://sqplayground.xablu.com
           # Pass github event pull_request head sha
