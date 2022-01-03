@@ -109,4 +109,5 @@ This project makes use of code authored by the libvpx project, licensed under BS
 See [LICENSE.txt](LICENSE.txt) and [THIRDPARTY.md](Ryujinx/THIRDPARTY.md) for more details.
 
 Test met PR decoration op azure devops
-
+Disabled test -> 0
+Added --logger trx as arguments
